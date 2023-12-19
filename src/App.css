@@ -1,17 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {font-family:"Counter-Strike Extruded";src:url("cs_extruded.eot?") format("eot"),url("cs_extruded.woff") format("woff"),url("cs_extruded.ttf") format("truetype"),url("cs_extruded.svg#Counter-StrikeExtruded") format("svg");font-weight:normal;font-style:normal;}
 
-
-*{
+* {
   padding: 0;
   margin: 0
 }
 
-header div{
+header div {
   width: 30%;
 }
 
 .ubicacionProductos {
   width: 80%
 }
+
+.imagenDetalle {
+  height: 10rem;
+}
+.roboto{
+  font-family: "Counter-Strike extruded";
+}
+
+<section className="bg-slate-200" >
+body{}

@@ -4,6 +4,6 @@ export const promesaFuncion = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(listadoDeProductos)
-        }, 3000)
+        }, 200)
     })
-}
+}   

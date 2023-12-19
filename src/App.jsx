@@ -2,37 +2,31 @@ import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import CategoriasProductos from "./components/Categorias/CategoriasProductos"
+import { DetallesDeArmas } from "./components/DetallesDeArmas/DetallesDeArmas"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter >
 
       <Navbar />
-      <article className='flex'>
-        <section>
+      <article className='flex bg-slate-200'>
+        <section className="bg-slate-200">
           <CategoriasProductos />
         </section>
-        <section >
+        <section className="bg-slate-200" >
 
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
-            <Route path="/pistolas" element={<ItemListContainer />} />
-            <Route path="/subfusil" element={<ItemListContainer />} />
-            <Route path="/rifles" element={<ItemListContainer />} />
+            <Route path="/armas/:tipoArma" element={<ItemListContainer />} />
+            <Route path="/armasID/:idArma" element={<DetallesDeArmas />} />
             <Route path="*" element={<ItemListContainer />} />
           </Routes>
 
-
-
         </section>
 
-
-
       </article>
-
-
 
     </BrowserRouter>
   )
