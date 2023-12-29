@@ -23,5 +23,59 @@ header div {
   font-family: "Counter-Strike extruded";
 }
 
-<section className="bg-slate-200" >
-body{}
+.card {
+  max-width: 350px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 5px 8px 8px rgba(100, 210, 200, 1);
+
+
+}
+
+.card img {
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.title {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 2px;
+  font-family: "Counter-Strike extruded"
+}
+
+.price {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 2px;
+  font-family: "Counter-Strike extruded"
+}
+
+.buy-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+    text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+  margin: 2px;
+  position: sticky;
+  bottom: -1000px;
+    
+}
+
+.buy-button:hover {
+   background-color: #22c55e;
+   /* green-500 */
+}

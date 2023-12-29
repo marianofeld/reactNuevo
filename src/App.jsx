@@ -1,9 +1,10 @@
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
-import CategoriasProductos from "./components/Categorias/CategoriasProductos"
+
 import { DetallesDeArmas } from "./components/DetallesDeArmas/DetallesDeArmas"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+
 
 function App() {
 
@@ -11,10 +12,9 @@ function App() {
     <BrowserRouter >
 
       <Navbar />
+
+      <img src='../public/bannercs.webp' alt="Banner Counter" class="w-full object-cover"  />
       <article className='flex bg-slate-200'>
-        <section className="bg-slate-200">
-          <CategoriasProductos />
-        </section>
         <section className="bg-slate-200" >
 
           <Routes>
