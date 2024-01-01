@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { promesaFuncion } from "../ItemListContainer/productos/promesaFuncion";
-
 import { useParams } from "react-router-dom";
 
 export const DetallesDeArmas = () => {
@@ -8,6 +7,8 @@ export const DetallesDeArmas = () => {
     const [arma, setArma] = useState([])
     const [cantidad, setCantidad] = useState(0)
     const { idArma } = useParams()
+
+    
 
     const aumentarCantidad = () => {
         setCantidad(cantidad + 1)
@@ -25,6 +26,8 @@ export const DetallesDeArmas = () => {
             cantidad
         }
         console.log(armaEnElCarro)
+
+
     }
    
 
@@ -50,17 +53,17 @@ export const DetallesDeArmas = () => {
                     <div className="px-4">
                         <div className="flex flex-col ">
                             <h1 className="text-5xl roboto">{arma1.nombre} </h1>
-                            <p className="text-5xl roboto">${arma1.valor}</p>
+                            <p className="text-5xl roboto py-4">${arma1.valor}</p>
 
                         </div>
                         <div>
-                            <p className="text-2xl roboto">{arma1.descripcion}</p>
+                            <p className="text-2xl roboto py-4">{arma1.descripcion}</p>
                             <div className="flex items-center py-12">
-                                <button onClick={disminuirCantidad} className="btn px-4 btn-primary text-3xl roboto items-center text-orange-400 w-12 h-12">-</button>
+                                <button onClick={disminuirCantidad} className="bg-gray-800 text-3xl hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 border-gray-600 hover:border-gray-500 rounded">-</button>
                                 <span className="px-4 text-2xl">{cantidad}</span>
-                                <button onClick={aumentarCantidad} className="btn px-4 btn-primary text-3xl roboto items-center text-orange-400 w-12 h-12">+</button>
+                                <button onClick={aumentarCantidad} className="bg-gray-800 text-3xl hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 border-gray-600 hover:border-gray-500 rounded">+</button>
                             </div>
-                            <button onClick={addToCart} className="btn btn-primary text-5xl roboto text-orange-400 w-40 h-16">BUY</button>
+                            <button onClick={addToCart} className="bg-gray-800 text-5xl roboto hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 border-gray-600 hover:border-gray-500 rounded">BUY</button>
                         </div>
                     </div>
                 </div>

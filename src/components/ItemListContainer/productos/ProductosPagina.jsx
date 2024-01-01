@@ -20,7 +20,7 @@ const ProductosPagina = () => {
 
         promesaFuncion()
             .then((data) => {
-                    const filtrosDeProductos = tipoArma
+                const filtrosDeProductos = tipoArma
                     ? data.filter(producto => producto.tipo === tipoArma)
                     : data
                 setProductos(filtrosDeProductos)
