@@ -1,20 +1,18 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState, useContext } from "react";
 import { promesaFuncion } from "../ItemListContainer/productos/promesaFuncion";
 import { useParams } from "react-router-dom";
+import CarritoContexto from "../../context/CarritoContexto";
 
 export const DetallesDeArmas = () => {
 
     const [arma, setArma] = useState([])
-    const [cantidad, setCantidad] = useState(0)
+    const [cantidad, setCantidad] = useState(1)
     const { idArma } = useParams()
-
-    
+    const { agregarAlCarrito, carrito } = useContext(CarritoContexto) //carrito si no lo agrego error en consola ¿no esta creado?(puedo navegar)
 
     const aumentarCantidad = () => {
-        setCantidad(cantidad + 1)
+        arma[0].stock > cantidad && setCantidad(cantidad + 1)
     }
-
-    // porque no me anda el .stock!!!!!!!!!!
 
     const disminuirCantidad = () => {
         cantidad > 1 && setCantidad(cantidad - 1)
@@ -24,12 +22,31 @@ export const DetallesDeArmas = () => {
         const armaEnElCarro = {
             ...arma,
             cantidad
-        }
-        console.log(armaEnElCarro)
+            
+            
+        } 
+        
+        // agregarAlCarrito(armaEnElCarro)
+        // if (carrito.some(item => item.id === armaEnElCarro.id)) {
+        //     const armaRepetida = {
+        //         ...armaEnElCarro,
+        //         cantidadNueva: armaEnElCarro.cantidad + cantidad
+        //     }
 
+        //     agregarAlCarrito(armaRepetida)
+
+        // }
+        // else { agregarAlCarrito(armaEnElCarro) }
+        agregarAlCarrito(armaEnElCarro)
 
     }
-   
+
+    // agregarAlCarrito(armaEnElCarro)
+
+
+
+
+
 
     useEffect(() => {
 
@@ -46,7 +63,6 @@ export const DetallesDeArmas = () => {
         <>
 
             {arma.map(arma1 =>
-
 
                 <div className="flex p-4 items-center justify-center m-40 bg-white" key={arma1.id}>
                     <img className="imagenDetalle " src={arma1.img} alt={arma1.nombre} />
@@ -74,4 +90,4 @@ export const DetallesDeArmas = () => {
 
         </>
     )
-}       
+}

@@ -14,8 +14,6 @@ const ProductosPagina = () => {
 
     const { tipoArma } = useParams()
 
-    console.log(tipoArma)
-
     useEffect(() => {
 
         promesaFuncion()
@@ -24,7 +22,7 @@ const ProductosPagina = () => {
                     ? data.filter(producto => producto.tipo === tipoArma)
                     : data
                 setProductos(filtrosDeProductos)
-                console.log(filtrosDeProductos)
+                
             })
     }, [tipoArma])
 
