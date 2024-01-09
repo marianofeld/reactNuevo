@@ -17,7 +17,7 @@ const Navbar = () => {
                 <Link className="hover:text-gray-300  text-4xl font-bold roboto  px-11 no-underline" to="/armas/rifle">Rifles</Link>
                 <Link className="hover:text-gray-300  text-4xl font-bold roboto  px-11 no-underline" to="/">Todas</Link>
 
-                <Link to="/" className='hover:text-gray-300 px-11 no-underline' ><CartWidget /></Link>
+                <Link to="/carrito" className='hover:text-gray-300 px-11 no-underline' ><CartWidget /> Carrito</Link>
             </nav>
         </header >
     )

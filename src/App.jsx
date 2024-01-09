@@ -3,8 +3,9 @@ import Navbar from './components/Navbar/Navbar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import { DetallesDeArmas } from "./components/DetallesDeArmas/DetallesDeArmas"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { useState } from "react"
+import { useState} from "react"
 import CarritoContexto from './context/CarritoContexto'
+import CarritoWeb from './components/Carrito/CarritoWeb'
 
 
 
@@ -12,50 +13,55 @@ import CarritoContexto from './context/CarritoContexto'
 function App() {
 
   const [carrito, setCarrito] = useState([])
-  
-  let posicionBuscada = carrito.findIndex(item => item.id === carrito.id)
 
-  
+    
+  // FIND
+
   const agregarAlCarrito = (arma) => {
-    if (posicionBuscada  != -1) {
-            
-            setCarrito([...carrito,{...arma}, carrito[posicionBuscada].cantidad= arma.cantidad + carrito[posicionBuscada].cantidad])
-           console.log(carrito)
-            
+    const armaBuscada = carrito.find(item => item.id == arma.id)
+    
+    if (armaBuscada) {
+      armaBuscada.cantidad = armaBuscada.cantidad + arma.cantidad
+      setCarrito([...carrito])
+      console.log("2 veces"+JSON.stringify(carrito) )
     } else {
-      
+      console.log("HOLAAA"+carrito)
       setCarrito([...carrito,arma])
-      console.log(JSON.stringify(carrito))
+      
+      
       
     }
   }
-    return (
 
-      <CarritoContexto.Provider value={{ agregarAlCarrito, carrito }}>
+  return (
 
-        <BrowserRouter >
+    <CarritoContexto.Provider value={{ agregarAlCarrito, carrito }}>
 
-          <Navbar />
+      <BrowserRouter >
 
-          <img src='../bannercs.webp' alt="Banner Counter" class="w-full object-cover" />
-          <article className='flex bg-slate-200'>
-            <section className="bg-slate-200" >
+        <Navbar />
 
-              <Routes>
-                <Route path="/" element={<ItemListContainer />} />
-                <Route path="/armas/:tipoArma" element={<ItemListContainer />} />
-                <Route path="/armasID/:idArma" element={<DetallesDeArmas />} />
-                <Route path="*" element={<ItemListContainer />} />
-              </Routes>
+        <img src='../bannercs.webp' alt="Banner Counter" className="w-full object-cover" />
+        <article className='flex bg-slate-200 w-full'>
+          <section className="bg-slate-200 w-full " >
 
-            </section>
+            <Routes>
+              <Route path="/" element={<ItemListContainer />} />
+              <Route path="/armas/:tipoArma" element={<ItemListContainer />} />
+              <Route path="/armasID/:idArma" element={<DetallesDeArmas />} />
+              <Route path="*" element={<ItemListContainer />} />
+              <Route path="/carrito" element={<CarritoWeb />} />
 
-          </article>
+            </Routes>
 
-        </BrowserRouter>
+          </section>
 
-      </CarritoContexto.Provider>
-    )
-  }
+        </article>
 
-  export default App
+      </BrowserRouter>
+
+    </CarritoContexto.Provider>
+  )
+}
+
+export default App
