@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
-import CarritoContexto from "../../../Context/CarritoContexto.jsx"
+import CarritoContexto from "../../../src/Context/CarritoContexto";
+
 
 
 export const DetalleDeArmasVision = ({ arma }) => {
@@ -44,7 +45,7 @@ export const DetalleDeArmasVision = ({ arma }) => {
                         <span className="px-4 text-2xl">{cantidad}</span>
                         <button onClick={aumentarCantidad} className="bg-gray-800 text-3xl hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 border-gray-600 hover:border-gray-500 rounded">+</button>
                     </div>
-                    <button onClick={()=>addToCart} className="bg-gray-800 text-5xl roboto hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 border-gray-600 hover:border-gray-500 rounded">BUY</button>
+                    <button onClick={addToCart} className="bg-gray-800 text-5xl roboto hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 border-gray-600 hover:border-gray-500 rounded">BUY</button>
                 </div>
             </div>
             
