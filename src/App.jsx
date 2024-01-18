@@ -1,5 +1,5 @@
 import './App.css'
-import { CarritoProvider } from './context/CarritoContexto'
+import { CarritoProvider } from './Context/CarritoContexto'
 import { RoutesPagina } from "./components/RoutesPagina";
 import { UsuarioProvider } from './Context/UsuarioContexto';
 
