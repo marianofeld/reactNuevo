@@ -78,7 +78,7 @@ const CompraForm = () => {
         icon: 'error',
         confirmButtonText: 'Ok'})
         .then(function() {
-          window.location.href = '/carrito'
+          window.location.href = 'react-nuevo.vercel.app'
        
         
       })
