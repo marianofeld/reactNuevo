@@ -1,10 +1,11 @@
 
 import { useState, useContext } from "react";
-import CarritoContexto from "../../Context/CarritoContexto";
+
 import { collection, getDocs, addDoc, writeBatch, query, where, documentId } from "firebase/firestore"
 import { db } from "../../firebase/config";
 import Swal from "sweetalert2"
 import 'sweetalert2/dist/sweetalert2.css'
+import CarritoContexto from "../../src/Context/CarritoContexto";
 
 const CompraForm = () => {
   const { carrito, vaciarCarrito } = useContext(CarritoContexto)
