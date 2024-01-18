@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import CarritoContexto from "../../context/CarritoContexto"
+import CarritoContexto from "../../Context/CarritoContexto"
 import { useContext } from "react";
 
 

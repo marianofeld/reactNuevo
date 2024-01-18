@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import CarritoContexto from "../../../context/CarritoContexto.jsx"
+import CarritoContexto from "../../../Context/CarritoContexto.jsx"
 
 
 export const DetalleDeArmasVision = ({ arma }) => {
