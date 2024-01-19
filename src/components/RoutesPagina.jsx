@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+    import { BrowserRouter, Routes, Route} from "react-router-dom";
 import { UsuarioContexto } from '../Context/UsuarioContexto';
 import CompraForm from './Compra/CompraForm';
 import { DetallesDeArmas } from './DetallesDeArmas/Detalles/DetallesDeArmas';

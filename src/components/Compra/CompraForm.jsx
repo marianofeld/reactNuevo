@@ -5,8 +5,13 @@ import { collection, getDocs, addDoc, writeBatch, query, where, documentId } fro
 import { db } from "../../firebase/config";
 import Swal from "sweetalert2"
 import 'sweetalert2/dist/sweetalert2.css'
+import { useNavigate } from 'react-router-dom';
 
 const CompraForm = () => {
+ 
+ const navigate = useNavigate();
+
+  
   const { carrito, vaciarCarrito } = useContext(CarritoContexto)
   const [ordenId, setOrdenId] = useState("")
   const ordenRef = collection(db, "ordenes")
@@ -77,7 +82,7 @@ const CompraForm = () => {
         icon: 'error',
         confirmButtonText: 'Ok'})
         .then(function() {
-          window.location.href = '/carrito'
+          navigate('/carrito');
        
         
       })
