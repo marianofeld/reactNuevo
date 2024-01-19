@@ -1,12 +1,13 @@
 import { useState, useContext } from "react";
 import CarritoContexto from "../../../Context/CarritoContexto.jsx"
+import { Link } from "react-router-dom";
 
 
 export const DetalleDeArmasVision = ({ arma }) => {
 
     const [cantidad, setCantidad] = useState(1)
     const { agregarAlCarrito } = useContext(CarritoContexto)
-
+    const [verBoton,setVerBoton] = useState(false)
 
 
     const aumentarCantidad = () => {
@@ -21,8 +22,9 @@ export const DetalleDeArmasVision = ({ arma }) => {
         const armaEnElCarro = {
             ...arma,
             cantidad
-
+        
         }
+        setVerBoton(true)
         agregarAlCarrito(armaEnElCarro)
 
 
@@ -30,7 +32,7 @@ export const DetalleDeArmasVision = ({ arma }) => {
 
     return (
         <div className="flex p-4 items-center justify-center m-40 bg-white" key={arma.id}>
-            <img  src={arma.img} alt={arma.nombre} />
+            <img src={arma.img} alt={arma.nombre} />
             <div className="px-4">
                 <div className="flex flex-col ">
                     <h1 className="text-5xl roboto">{arma.nombre} </h1>
@@ -43,17 +45,18 @@ export const DetalleDeArmasVision = ({ arma }) => {
                         <button onClick={disminuirCantidad} className="bg-gray-800 text-3xl hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 border-gray-600 hover:border-gray-500 rounded">-</button>
                         <span className="px-4 text-2xl">{cantidad}</span>
                         <button
-                    onClick={aumentarCantidad}
-                    className={`bg-gray-800 text-3xl hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 ${
-                        cantidad < arma.stock ? 'border-gray-600 hover:border-gray-500' : 'border-red-500 hidden' // Cambio en la lógica para el estilo
-                    } rounded`}
-                    
-                >+</button>
+                            onClick={aumentarCantidad}
+                            className={`bg-gray-800 text-3xl hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 ${cantidad < arma.stock ? 'border-gray-600 hover:border-gray-500' : 'border-red-500 hidden' // Cambio en la lógica para el estilo
+                                } rounded`}
+                        >+</button>
                     </div>
                     <button onClick={addToCart} className="bg-gray-800 text-5xl roboto hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 border-gray-600 hover:border-gray-500 rounded">BUY</button>
-                </div>
+                      { verBoton && 
+                        <Link to="/carrito" className="bg-gray-800 text-5xl roboto hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 border-gray-600 hover:border-gray-500 rounded">Carrito</Link>
+                    }
+                        </div>
             </div>
-            
+
         </div>
 
     )
