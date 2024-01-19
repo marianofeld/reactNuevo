@@ -5,13 +5,13 @@ import { collection, getDocs, addDoc, writeBatch, query, where, documentId } fro
 import { db } from "../../firebase/config";
 import Swal from "sweetalert2"
 import 'sweetalert2/dist/sweetalert2.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CompraForm = () => {
- 
- const navigate = useNavigate();
 
-  
+  const navigate = useNavigate();
+
+
   const { carrito, vaciarCarrito } = useContext(CarritoContexto)
   const [ordenId, setOrdenId] = useState("")
   const ordenRef = collection(db, "ordenes")
@@ -67,33 +67,34 @@ const CompraForm = () => {
           addDoc(ordenRef, orden).then((doc) => {
             setOrdenId(doc.id)
             vaciarCarrito();
-            
+
             Swal.fire({
               title: 'Gracias por tu compra',
               icon: 'success',
               timer: 1000
             })
           })
-          
+
         })
     } else {
       Swal.fire({
         title: 'No hay stock',
         icon: 'error',
-        confirmButtonText: 'Ok'})
-        .then(function() {
-          navigate('/carrito');
-       
-        
+        confirmButtonText: 'Ok'
       })
-    
-      
-      
+        .then(function () {
+          navigate('/carrito');
+
+
+        })
+
+
+
     }
-    
 
 
-    
+
+
 
 
 
@@ -106,10 +107,11 @@ const CompraForm = () => {
 
         <p className="block text-white text-3xl font-semibold"> Tu codigo de orden es: {ordenId}</p>
         <p className="block text-white text-3xl font-semibold">Pronto nos pondremos en contacto.</p>
+        <Link to="/" className="bg-yellow-500 text-white my-2 px-6 py-4 rounded text-2xl hover:bg-yellow-400 focus:outline-none focus:shadow-outline-yellow">Inicio</Link>
       </div>
     )
 
-  } 
+  }
 
 
 

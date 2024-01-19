@@ -16,15 +16,15 @@ export const DetallesDeArmas = () => {
     useEffect(() => {
 
         const docRef = doc(db, 'armas', idArma)
-        console.log(docRef)
+
         getDoc(docRef)
             .then((docSnapshot) => {
                 const doc = {
                     ...docSnapshot.data(),
                     id: docSnapshot.id
-                    
+
                 }
-                console.log(arma)
+
                 setArma(doc)
 
             })

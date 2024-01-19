@@ -4,7 +4,7 @@ import { useContext, useState } from "react"
 
 export const Login = () => {
 
-  const { verificoUsuario,googleCuenta} = useContext(UsuarioContexto)
+  const { verificoUsuario, googleCuenta } = useContext(UsuarioContexto)
 
   const [cuenta, setCuenta] = useState(
     {
@@ -62,7 +62,7 @@ export const Login = () => {
             >
               Iniciar sesión
             </button>
-           
+
             <Link
               to="/registro"
               className="bg-yellow-500 text-center text-white my-2 px-6 py-4 rounded text-2xl hover:bg-yellow-400 focus:outline-none focus:shadow-outline-yellow"
@@ -72,14 +72,14 @@ export const Login = () => {
           </div>
         </form>
         <button
-              onClick={()=>googleCuenta()}
-              className="bg-yellow-500 text-white my-2 px-6 py-4 rounded text-2xl hover:bg-yellow-400 focus:outline-none focus:shadow-outline-yellow"
-            >
-              Iniciar sesión con google
-            </button>
+          onClick={() => googleCuenta()}
+          className="bg-yellow-500 text-white my-2 px-6 py-4 rounded text-2xl hover:bg-yellow-400 focus:outline-none focus:shadow-outline-yellow"
+        >
+          Iniciar sesión con google
+        </button>
       </div>
     </div>
   )
-  }
+}
 
 export default Login;

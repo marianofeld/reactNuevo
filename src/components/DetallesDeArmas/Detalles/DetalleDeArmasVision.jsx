@@ -7,7 +7,7 @@ export const DetalleDeArmasVision = ({ arma }) => {
 
     const [cantidad, setCantidad] = useState(1)
     const { agregarAlCarrito } = useContext(CarritoContexto)
-    const [verBoton,setVerBoton] = useState(false)
+    const [verBoton, setVerBoton] = useState(false)
 
 
     const aumentarCantidad = () => {
@@ -22,7 +22,7 @@ export const DetalleDeArmasVision = ({ arma }) => {
         const armaEnElCarro = {
             ...arma,
             cantidad
-        
+
         }
         setVerBoton(true)
         agregarAlCarrito(armaEnElCarro)
@@ -50,11 +50,11 @@ export const DetalleDeArmasVision = ({ arma }) => {
                                 } rounded`}
                         >+</button>
                     </div>
-                    <button onClick={addToCart} className="bg-gray-800 text-5xl roboto hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 border-gray-600 hover:border-gray-500 rounded">BUY</button>
-                      { verBoton && 
-                        <Link to="/carrito" className="bg-gray-800 text-5xl roboto hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 border-gray-600 hover:border-gray-500 rounded">Carrito</Link>
+                    <button onClick={addToCart} className="bg-gray-800 text-4xl roboto hover:bg-gray-700 text-white font-bold py-2 px-4 mx-2 border-b-4 border-gray-600 hover:border-gray-500 rounded">BUY</button>
+                    {verBoton &&
+                        <Link to="/carrito" className="bg-gray-800 text-4xl roboto hover:bg-gray-700 text-white font-bold py-2 px-4 mx-2 border-b-4 border-gray-600 hover:border-gray-500 rounded">Carrito</Link>
                     }
-                        </div>
+                </div>
             </div>
 
         </div>

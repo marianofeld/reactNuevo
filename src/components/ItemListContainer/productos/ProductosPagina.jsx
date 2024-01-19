@@ -15,7 +15,7 @@ const ProductosPagina = () => {
 
     useEffect(() => {
 
-        const armasRef = collection(db,'armas')
+        const armasRef = collection(db, 'armas')
         const q = tipoArma
             ? query(armasRef, where('tipo', '==', tipoArma))
             : armasRef
@@ -26,7 +26,7 @@ const ProductosPagina = () => {
                     ...el.data(),
                     id: el.id
                 }))
-                console.log(docs)
+
                 setProductos(docs)
             })
 

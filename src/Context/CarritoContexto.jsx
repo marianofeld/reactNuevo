@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react"
-import { toast,ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css"
 
@@ -16,7 +16,7 @@ export const CarritoProvider = ({ children }) => {
     }
   }, []);
 
-  
+
   useEffect(() => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
   }, [carrito]);
@@ -36,17 +36,17 @@ export const CarritoProvider = ({ children }) => {
   const removeArma = (id) => {
     setCarrito(carrito.filter(arma => arma.id !== id))
   }
-  
+
   const agregarAlCarrito = (arma) => {
     const armaBuscada = carrito.find(item => item.id == arma.id)
 
     if (armaBuscada) {
       armaBuscada.cantidad = armaBuscada.cantidad + arma.cantidad
       setCarrito([...carrito])
-      toast.success("¡Añadiste la misma arma al carrito!", {autoClose: 3000, position: "top-right" })
+      toast.success("¡Añadiste la misma arma al carrito!", { autoClose: 3000, position: "top-right" })
     } else {
       setCarrito([...carrito, arma])
-      toast.success("¡Arma añadido al carrito!", { autoClose: 3000,position: "top-right" })
+      toast.success("¡Arma añadido al carrito!", { autoClose: 3000, position: "top-right" })
 
     }
   }

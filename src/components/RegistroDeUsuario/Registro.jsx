@@ -3,7 +3,7 @@ import UsuarioContexto from '../../Context/UsuarioContexto';
 
 export const Registro = () => {
 
-    const {registroApp} = useContext(UsuarioContexto)
+    const { registroApp } = useContext(UsuarioContexto)
 
     const [usuarioNew, setUsuarioNew] = useState({
         email: '',
@@ -13,12 +13,11 @@ export const Registro = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUsuarioNew({ ...usuarioNew, [name]: value });
-      }
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         await registroApp(usuarioNew)
-        console.log('Usuario registrado:', usuarioNew);
     };
 
     return (

@@ -1,4 +1,4 @@
-    import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UsuarioContexto } from '../Context/UsuarioContexto';
 import CompraForm from './Compra/CompraForm';
 import { DetallesDeArmas } from './DetallesDeArmas/Detalles/DetallesDeArmas';
@@ -7,7 +7,7 @@ import Login from "./Login/Login";
 import CarritoWeb from './Carrito/CarritoWeb';
 import Navbar from './Navbar/Navbar';
 import { useContext } from "react";
-import {Registro} from './RegistroDeUsuario/Registro'
+import { Registro } from './RegistroDeUsuario/Registro'
 
 
 export const RoutesPagina = () => {
@@ -27,7 +27,7 @@ export const RoutesPagina = () => {
                         <Route path="/armasID/:idArma" element={<DetallesDeArmas />} />
                         <Route path="/carrito" element={<CarritoWeb />} />
                         <Route path="/CompraForm" element={<CompraForm />} />
-                        <Route path="*" element={<ItemListContainer />}/>
+                        <Route path="*" element={<ItemListContainer />} />
                     </Routes>
 
                 </>

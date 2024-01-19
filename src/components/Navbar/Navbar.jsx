@@ -7,7 +7,7 @@ import UsuarioContexto from '../../Context/UsuarioContexto';
 
 
 const Navbar = () => {
-    const { carrito, cantidadDeArmas,vaciarCarrito } = useContext(CarritoContexto)
+    const { carrito, cantidadDeArmas, vaciarCarrito } = useContext(CarritoContexto)
     const { usuario, salir } = useContext(UsuarioContexto)
 
     const [showUser, setShowUser] = useState(false);
@@ -45,7 +45,7 @@ const Navbar = () => {
                 {(usuario.logiado === showUser) && (
                     <div className="absolute top-16 right-0 bg-gray-800 p-4 shadow-md">
                         <p className='text-3xl text-white'>{usuario.email}</p>
-                        <button onClick={() =>  {salir() & vaciarCarrito() }} className="mt-2 bg-red-500 text-white px-4 py-2 rounded-md">
+                        <button onClick={() => { salir() & vaciarCarrito() }} className="mt-2 bg-red-500 text-white px-4 py-2 rounded-md">
                             Cerrar Sesión
                         </button>
                     </div>

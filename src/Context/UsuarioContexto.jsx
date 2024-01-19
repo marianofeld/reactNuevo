@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react'
 import { auth, google } from '../firebase/config';
-import {signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signInWithPopup } from 'firebase/auth';
+import { signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signInWithPopup } from 'firebase/auth';
 
 
 export const UsuarioContexto = createContext()
@@ -28,21 +28,22 @@ export const UsuarioProvider = ({ children }) => {
       }
       )
   }
-  
-  const googleCuenta = ()=>{
-    signInWithPopup(auth,google)
-    console.log(auth)
+
+  const googleCuenta = () => {
+    signInWithPopup(auth, google)
+
   }
 
- 
+
 
   const salir = () => {
     auth.signOut().then(() => {
-      console.log('Sesión cerrada correctamente');
-   })}
+      ;
+    })
+  }
 
 
-    
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -64,7 +65,7 @@ export const UsuarioProvider = ({ children }) => {
 
 
   return (
-    <UsuarioContexto.Provider value={{ usuario, verificoUsuario, registroApp,salir,googleCuenta }}>
+    <UsuarioContexto.Provider value={{ usuario, verificoUsuario, registroApp, salir, googleCuenta }}>
       {children}
     </UsuarioContexto.Provider>
   );
