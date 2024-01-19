@@ -42,12 +42,18 @@ export const DetalleDeArmasVision = ({ arma }) => {
                     <div className="flex items-center py-5">
                         <button onClick={disminuirCantidad} className="bg-gray-800 text-3xl hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 border-gray-600 hover:border-gray-500 rounded">-</button>
                         <span className="px-4 text-2xl">{cantidad}</span>
-                        <button onClick={aumentarCantidad} className="bg-gray-800 text-3xl hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 border-gray-600 hover:border-gray-500 rounded">+</button>
+                        <button
+                    onClick={aumentarCantidad}
+                    className={`bg-gray-800 text-3xl hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 ${
+                        cantidad < arma.stock ? 'border-gray-600 hover:border-gray-500' : 'border-red-500 hidden' // Cambio en la lógica para el estilo
+                    } rounded`}
+                    
+                >+</button>
                     </div>
                     <button onClick={addToCart} className="bg-gray-800 text-5xl roboto hover:bg-gray-700 text-white font-bold py-2 px-4 border-b-4 border-gray-600 hover:border-gray-500 rounded">BUY</button>
                 </div>
             </div>
-            {console.log("ir a carrito o agregar o tostada")}
+            
         </div>
 
     )
