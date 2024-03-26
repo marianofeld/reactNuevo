@@ -23,12 +23,11 @@ const Navbar = () => {
                 <a className='flex items-center' href="index.html"><img className='h-20 ml-4 rounded-full' src="../icono.webp" alt="LOGO" /></a>
             </div>
             <nav className='flex items-center'>
-
+                <a href=""></a>
                 <Link className="hover:text-gray-300  text-4xl font-bold roboto  px-11 no-underline" to="/armas/pistola">Pistolas</Link >
                 <Link className="hover:text-gray-300  text-4xl font-bold roboto  px-11 no-underline" to="/armas/subfusil">Subfusil</Link>
                 <Link className="hover:text-gray-300  text-4xl font-bold roboto  px-11 no-underline" to="/armas/rifle">Rifles</Link>
                 <Link className="hover:text-gray-300  text-4xl font-bold roboto  px-11 no-underline" to="/">Todas</Link>
-
 
                 {(carrito.length !== 0) &&
                     <Link to="/carrito" className='flex items-center hover:text-gray-300 px-11 no-underline' >
